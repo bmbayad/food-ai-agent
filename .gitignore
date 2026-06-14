@@ -1,2 +1,83 @@
 .env.sample
 
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === Virtual Environments ===
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# === Environment Variables & Secrets ===
+.env
+.env.*
+!.env.example
+secrets.toml
+
+# === Testing & Coverage ===
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# === Database (SQLite / Migrations) ===
+*.db
+*.sqlite3
+# Uncomment below if you want to ignore auto-generated Alembic migrations (not recommended)
+# alembic/versions/*.py
+
+# === Docker ===
+# Note: Keep your Dockerfile and docker-compose.yml in git.
+# Only ignore local/temp docker files or local data volumes.
+.docker/
+docker-compose.override.yml
+
+# === IDEs & Editors ===
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# === OS Files ===
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
