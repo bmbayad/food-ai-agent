@@ -7,7 +7,7 @@ API_KEY = os.environ.get("API_KEY")
 if not API_KEY:
     raise ValueError("API_KEY environment variable is not set")
 
-MY_PROJECT = os.environ.get("MY_PROJECT")
+MY_PROJECT = "my simple project"
 
 
 @app.get("/")
