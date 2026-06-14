@@ -31,7 +31,7 @@ COPY ./src /app
 
 
 #start python server
-#CMD ["python", "-m", "http.server", "8000"]
+CMD ["python", "-m", "http.server", "8000"]
 
 #expose port 8000
 #EXPOSE 8000
