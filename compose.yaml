@@ -50,11 +50,16 @@ services: #docker compose expects
     ports:
       - 5432:5432
     volumes:
-      - dc_managed_db_data:/var/lib/postgresql/data
+      - dc_managed_db_data:/var/lib/postgresql/data #/var/lib/postgresql/data/pgdata
+      #- dc_managed_db_data:/var/lib/postgresql/data/pgdata
+
+
+
     environment:
-      - POSTGRES_USER=dbuser
-      - POSTGRES_PASSWORD=db-password
-      - POSTGRES_DB=mydb 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=EvqwPqftvJXWIgbSqOadTUYQDbSpMZGc
+      - POSTGRES_DB=railway
+      - PGDATA=/var/lib/postgresql/data/pgdata 
     # healthcheck:
     #   test: ["CMD-SHELL", "pg_isready -U dbuser -d mydb -h localhost -p 5432"]
     #   interval: 1m30s

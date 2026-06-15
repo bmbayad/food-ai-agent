@@ -25,7 +25,7 @@ engine = sqlmodel.create_engine(DATABASE_URL)
 def init_db():
     
     print("creating database tables...")
-    time.sleep(20) #wait for database to be ready 20 seconds
+    time.sleep(12) #wait for database to be ready 20 seconds
     SQLModel.metadata.create_all(engine)
 
 def get_session():
