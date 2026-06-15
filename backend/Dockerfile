@@ -3,18 +3,20 @@
 FROM python:slim-trixie
 
 
+RUN apt-get update && apt-get install -y curl && apt-get clean
+
 #create python virtual environment to isollate our python app from system python
 RUN python -m venv /opt/venv
 ENV PATH=/opt/venv/bin:$PATH
 
 WORKDIR /app
 
-#copy local fine to container destination
+#copy local file to container destination
 COPY requirements.txt /tmp/requirements.txt
 #run within the container
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-#copy local fine to container destination
+#copy local file to container destination
 COPY ./src /app
 
 
