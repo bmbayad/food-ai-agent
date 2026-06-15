@@ -1,1 +1,25 @@
-hell there ok
+https://docs.docker.com/ai/model-runner/api-reference/#ollama-compatible-api
+
+curl -X POST -d "{\"message\":\"hello world 3\"}" -H "Content-type: application/json" http://localhost:8080/api/chat/
+
+
+curl http://localhost:12434/engines/v1/chat/completions -H "Content-Type: application/json" -d "{\"model\": \"ai/llama3.2\",\"messages\": [ {\"role\": \"system\", \"content\":\"you are a great software engineer\"},{\"role\": \"user\", \"content\":\"how to print in python helloworld!\"}]}"
+
+curl http://localhost:12434/api/chat -H "Content-Type: application/json" -d "{\"model\": \"ai/llama3.2\",\"message\": [ {\"role\": \"user\", \"content\":\"Hello\"}]}"   
+
+
+curl http://model-runner.docker.internal/engines/v1/chat/completions \
+    -H "Content-Type: application/json" \
+    -d '{
+        "model": "ai/llama3.2",
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a helpful assistant."
+            },
+            {
+                "role": "user",
+                "content": "Please write 500 words about the fall of Rome."
+            }
+        ]
+    }'

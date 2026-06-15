@@ -3,3 +3,5 @@ uvicorn[standard]
 requests
 sqlmodel
 psycopg[binary] >=3.0.0
+langchain
+langchain-openai

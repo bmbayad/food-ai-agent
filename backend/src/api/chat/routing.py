@@ -5,6 +5,8 @@ from typing import List
 from .models import ChatMessageListItem, ChatMessagePayload, ChatMessage
 
 from api.db import get_session
+from api.ai.services import generate_email_message
+from api.ai.schemas import EmailMessageSchema
 
 router = APIRouter()
 
@@ -24,9 +26,27 @@ def chat_recent_messages(session: Session = Depends(get_session)):
     return messages
 
 
+# old #add a message
+# #curl -X POST http://localhost:8000/api/chat/ -H "Content-Type: application/json" -d "{\"message\": \"Hello, World!\"}"
+# @router.post("/", response_model=ChatMessageListItem)
+# def chat_create_message(payload: ChatMessagePayload, session: Session = Depends(get_session)):
+#     data = payload.model_dump()    
+#     obj = ChatMessage.model_validate(data)
+  
+#     #read to story in database
+#     session.add(obj)
+#     session.commit()
+#     session.refresh(obj)
+  
+#     response = generate_email_message(payload.message)
+#     print("Generated email message:", response)
+#     #return obj
+#     return response
+
+
 #add a message
 #curl -X POST http://localhost:8000/api/chat/ -H "Content-Type: application/json" -d "{\"message\": \"Hello, World!\"}"
-@router.post("/", response_model=ChatMessageListItem)
+@router.post("/", response_model=EmailMessageSchema)
 def chat_create_message(payload: ChatMessagePayload, session: Session = Depends(get_session)):
     data = payload.model_dump()    
     obj = ChatMessage.model_validate(data)
@@ -36,4 +56,7 @@ def chat_create_message(payload: ChatMessagePayload, session: Session = Depends(
     session.commit()
     session.refresh(obj)
   
-    return obj
+    response = generate_email_message(payload.message)
+    print("Generated email message:", response)
+    #return obj
+    return response
